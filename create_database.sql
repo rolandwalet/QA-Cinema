@@ -115,10 +115,11 @@ CREATE TABLE IF NOT EXISTS `ticket_type` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE IF NOT EXISTS `ticket` (
+  `id` INT NOT NULL,
   `ticket_type_id` INT NOT NULL,
   `booking_id` INT NOT NULL,
   `quantity` INT(2) NOT NULL,
-  PRIMARY KEY (`ticket_type_id`, `booking_id`),
+  PRIMARY KEY (`id`),
     FOREIGN KEY (`ticket_type_id`)
     REFERENCES `ticket_type` (`id`)
     ON DELETE NO ACTION

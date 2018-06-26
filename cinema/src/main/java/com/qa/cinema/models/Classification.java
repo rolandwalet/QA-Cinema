@@ -15,6 +15,8 @@ public class Classification {
     private String name;
     @Column(name="description")
     private String description;
+    @Column(name = "image")
+    private String image;
 
     public Long getId() {
         return id;
@@ -40,4 +42,11 @@ public class Classification {
         this.description = description;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

@@ -9,15 +9,24 @@ import javax.persistence.*;
 public class Ticket {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "ticket_type_id")
     private TicketType ticketType;
-    @Id
     @ManyToOne
     @JoinColumn(name = "booking_id")
     private Booking booking;
     @Column(name = "quantity")
     private Integer quantity;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public TicketType getTicketType() {
         return ticketType;
