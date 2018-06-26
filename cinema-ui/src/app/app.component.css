@@ -2,6 +2,12 @@
   height: inherit;
 }
 
+
+.mat-toolbar {
+  background-color: #0057ff;
+  box-shadow: 0px 5px 6px #000000;
+}
+
 .mat-card-content {
   width: inherit;
   text-align: center;
@@ -11,6 +17,8 @@
 
 .mat-button {
   width: inherit;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.2em;
 }
 .mat-menu {
   width: 400px;
@@ -26,7 +34,24 @@
 #footer {
   position:absolute;
   bottom:0;
-  width:100%;
-  height:10%;   /* Height of the footer */
+  width: 99%;
+  height:20%;   /* Height of the footer */
   background:#6cf;
+}
+
+ul {
+  padding: 0;
+  width: 33%;
+  float: left;
+  list-style-type: none;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration:none;
+}
+a:hover {
+  font-weight: bold;
 }
