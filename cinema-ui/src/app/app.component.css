@@ -2,10 +2,14 @@
   height: inherit;
 }
 
+#header{
+
+}
+
 
 .mat-toolbar {
-  background-color: #0057ff;
-  box-shadow: 0px 5px 6px #000000;
+  background-color: #6cf;
+  box-shadow: 0px 5px 8px #000000;
 }
 
 .mat-card-content {
@@ -13,7 +17,12 @@
   text-align: center;
   align-content: center;
   align: center;
+  /* background-color: #6cf; */
 }
+
+/* * {
+  background-color: #0057ff;
+} */
 
 .mat-button {
   width: inherit;
@@ -40,6 +49,7 @@
 }
 
 ul {
+  background-color: #6cf;
   padding: 0;
   width: 33%;
   float: left;
@@ -48,9 +58,14 @@ ul {
   text-align: center;
 }
 
+li {
+  background-color: #6cf;
+}
+
 a {
   color: black;
   text-decoration:none;
+  background-color: #6cf;
 }
 a:hover {
   font-weight: bold;
