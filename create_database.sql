@@ -9,13 +9,6 @@ CREATE TABLE IF NOT EXISTS `director` (
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE track(
-  trackid     INTEGER, 
-  trackname   TEXT, 
-  trackartist INTEGER,
-  FOREIGN KEY (trackartist) REFERENCES artist(artistid)
-);
-
 CREATE TABLE IF NOT EXISTS `film` (
   `id` INT NOT NULL,
   `title` VARCHAR(255) NOT NULL,
@@ -93,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `showing` (
   `id` INT NOT NULL,
   `film_id` INT NOT NULL,
   `time` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
   `screen_id` INT NOT NULL,
   PRIMARY KEY (`id`),
     FOREIGN KEY (`screen_id`)
