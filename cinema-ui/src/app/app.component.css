@@ -1,0 +1,32 @@
+#headerLogo {
+  height: inherit;
+}
+
+.mat-card-content {
+  width: inherit;
+  text-align: center;
+  align-content: center;
+  align: center;
+}
+
+.mat-button {
+  width: inherit;
+}
+.mat-menu {
+  width: 400px;
+}
+.mat-menu-content {
+  width: 400px;
+}
+
+#matCardContent {
+  width: 400px;
+}
+
+#footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:10%;   /* Height of the footer */
+  background:#6cf;
+}

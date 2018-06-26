@@ -1,28 +1,55 @@
 <mat-toolbar>
   <mat-toolbar-row>
+    <img id="headerLogo" src="../assets/logo/QA-logo.jpg" />
   </mat-toolbar-row>
   <mat-toolbar-row>
-
-      <mat-card-content>
-        <button mat-button [matMenuTriggerFor]="menu">
-          Films
+    <mat-card-content>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <i class="fas fa-video"></i>
+        Films
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>What's On</span>
         </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <span>What's On</span>
-          </button>
-          <button mat-menu-item>
-            <span>Future Releases</span>
-          </button>
-        </mat-menu>
-      </mat-card-content>
+        <button mat-menu-item>
+          <span>Future Releases</span>
+        </button>
+      </mat-menu>
+    </mat-card-content>
 
+    <mat-card-content>
+      <button mat-button><i class="fas fa-ticket-alt"></i>Booking</button>
+    </mat-card-content>
 
+    <mat-card-content>
+      <button mat-button [matMenuTriggerFor]="infoMenu">
+        <i class="fas fa-info-circle"></i>
+        Information
+      </button>
+      <mat-menu #infoMenu="matMenu">
+        <button mat-menu-item>
+          <span>Opening Times</span>
+        </button>
+        <button mat-menu-item>
+          <span>Classifications</span>
+        </button>
+        <button mat-menu-item>
+          <span>Screens</span>
+        </button>
+      </mat-menu>
+    </mat-card-content>
 
+    <mat-card-content>
+      <button mat-button><i class="fas fa-address-book"></i>Contact</button>
+    </mat-card-content>
 
-    <button mat-button>Booking</button>
-    <button mat-button>Information</button>
-    <button mat-button>Contact</button>
-    <button mat-button>Future Releases</button>
   </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-toolbar id="footer">
+  <mat-card-content>
+    <button mat-button><i class="fas fa-ticket-alt"></i>Booking</button>
+  </mat-card-content>
 </mat-toolbar>
