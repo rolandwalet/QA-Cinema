@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule} from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { CarouselModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,7 +22,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home',
     component: HomeComponent
@@ -98,7 +99,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
