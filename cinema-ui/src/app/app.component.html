@@ -1,6 +1,6 @@
 <mat-toolbar>
   <mat-toolbar-row id="header">
-    <h1 style="font-size:2.5em">QA Cinemas</h1>
+  <a [routerLink]="['/home']"><h1 style="font-size:2.5em"> QA Cinemas</h1></a>
   </mat-toolbar-row>
   <mat-toolbar-row>
     <mat-card-content>
@@ -9,17 +9,17 @@
         Films
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/listings-gallery']">
           <span>What's On</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/future-releases']">
           <span>Future Releases</span>
         </button>
       </mat-menu>
     </mat-card-content>
 
     <mat-card-content>
-      <button mat-button><i class="fas fa-ticket-alt"></i>Booking</button>
+      <button mat-button [routerLink]="['/booking']"><i class="fas fa-ticket-alt"></i>Booking</button>
     </mat-card-content>
 
     <mat-card-content>
@@ -28,67 +28,67 @@
         Information
       </button>
       <mat-menu #infoMenu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/opening-times']">
           <span>Opening Times</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/classifications']">
           <span>Classifications</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/screens']">
           <span>Screens</span>
         </button>
       </mat-menu>
     </mat-card-content>
 
     <mat-card-content>
-      <button mat-button><i class="fas fa-address-book"></i>Contact</button>
+      <button mat-button [routerLink]="['/contact']"><i class="fas fa-address-book"></i>Contact</button>
     </mat-card-content>
 
   </mat-toolbar-row>
 </mat-toolbar>
 
-
+<router-outlet></router-outlet>
 <mat-toolbar id="footer">
   <ul>
     <li>
-      <a href="url">Home</a>
+      <a [routerLink]="['/home']">Home</a>
     </li>
     <li>
-      <a href="url">Currently Showing</a>
+      <a [routerLink]="['/listings-gallery']">Currently Showing</a>
     </li>
     <li>
-      <a href="url">Coming Soon</a>
+      <a [routerLink]="['/future-releases']">Coming Soon</a>
     </li>
     <li>
-      <a href="url">Message Board</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a href="url">Opening Times</a>
-    </li>
-    <li>
-      <a href="url">Classifications</a>
-    </li>
-    <li>
-      <a href="url">Screens</a>
-    </li>
-    <li>
-      <a href="url">Ticket Booking</a>
+      <a [routerLink]="['/message-board']">Message Board</a>
     </li>
   </ul>
   <ul>
     <li>
-      <a href="url">Contact Us</a>
+      <a [routerLink]="['/opening-times']">Opening Times</a>
     </li>
     <li>
-      <a href="url">The Local Area</a>
+      <a [routerLink]="['/classifications']">Classifications</a>
     </li>
     <li>
-      <a href="url">Find Us</a>
+      <a [routerLink]="['/screens']">Screens</a>
     </li>
     <li>
-      <a href="url">About Us</a>
+      <a [routerLink]="['/booking']">Ticket Booking</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <a [routerLink]="['/contact']">Contact Us</a>
+    </li>
+    <li>
+      <a [routerLink]="['/local-venues']">The Local Area</a>
+    </li>
+    <li>
+      <a [routerLink]="['/location']">Find Us</a>
+    </li>
+    <li>
+      <a [routerLink]="['/about-us']">About Us</a>
     </li>
   </ul>
 
