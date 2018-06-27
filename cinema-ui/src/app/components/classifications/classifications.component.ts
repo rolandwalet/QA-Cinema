@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassificationServiceService } from '../../services/classification/classification-service.service';
 
 @Component({
   selector: 'app-classifications',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassificationsComponent implements OnInit {
 
-  constructor() { }
+  classifications: Array<any>;
+
+  constructor( private classificationService: ClassificationServiceService ) { }
 
   ngOnInit() {
+    this.classificationService.getAll().subscribe(data => {
+      this.classifications = data;
+      console.log(data);
+    });
   }
 
 }
