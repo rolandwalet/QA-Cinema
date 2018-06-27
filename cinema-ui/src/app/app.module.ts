@@ -19,9 +19,10 @@ import { LocalVenuesComponent } from './components/local-venues/local-venues.com
 import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
+import { ClassificationServiceService } from './services/classification/classification-service.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home',
     component: HomeComponent
