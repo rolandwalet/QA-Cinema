@@ -20,8 +20,10 @@ public class FilmsController {
         return repo.findAll();
     }
 
+
     @GetMapping("/{id}")
     public Film get(@PathVariable("id") Long id) {
+        System.out.print(repo.getOne(id));
         return repo.getOne(id);
     }
 
