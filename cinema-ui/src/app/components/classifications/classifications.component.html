@@ -1,3 +1,25 @@
-<p>
-  classifications works!
-</p>
+<h2>Film Classifications</h2>
+<table>
+  <tr>
+    <th class="imgColumn">
+      Icon
+    </th>
+    <th class="nameColumn">
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+  </tr>
+  <tr *ngFor="let classification of this.classifications">
+    <td class="imgColumn">
+      <img src="{{classification.image}}" style="mix-blend-mode: multiply;" />
+    </td>
+    <td class="nameColumn">
+      {{classification.name}}
+    </td>
+    <td>
+      {{classification.description}}
+    </td>
+  </tr>
+</table>

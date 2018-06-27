@@ -15,8 +15,8 @@ export class ClassificationsComponent implements OnInit {
   ngOnInit() {
     this.classificationService.getAll().subscribe(data => {
       this.classifications = data;
+      console.log(data);
     });
-    console.log(this.classifications);
   }
 
 }

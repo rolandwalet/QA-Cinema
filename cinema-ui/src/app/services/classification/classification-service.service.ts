@@ -10,7 +10,7 @@ export class ClassificationServiceService {
   constructor(private http: HttpClient) { }
 
   getGetAllClassificationsUrl() {
-    return "//localhost:8080/classifications"
+    return "//localhost:4200/server/classifications"
   }
 
   getAll(): Observable<any> {
