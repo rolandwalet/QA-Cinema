@@ -31,3 +31,33 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+mat-form-field {
+  min-width:auto !important;
+  .mat-form-field-infix {
+    width: auto;
+  }
+}
+
+.mat-form-field-infix {
+  width: auto !important;
+}
+
+.form-full-width {
+    float: left;
+    min-width: 10em;
+    max-width: 50em;
+    width:30em;
+}
+
+.input-full-width {
+  min-width: 10em;
+  max-width: 50em;
+  width:30em;
+}
+
+#messageSaveBtn {
+  min-width: 10em;
+  max-width: 50em;
+  width:35em;
+}
