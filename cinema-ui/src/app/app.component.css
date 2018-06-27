@@ -41,8 +41,9 @@
 }
 
 #footer {
-  position:absolute;
-  bottom:0;
+  position:relative;
+  left: 0;
+  bottom: 0;
   width: 99%;
   height:20%;   /* Height of the footer */
   background:#6cf;
@@ -52,6 +53,7 @@
   margin-top: 2%;
   margin-right: 5%;
   margin-left: 5%;
+  flex: 1;
 }
 
 ul {
