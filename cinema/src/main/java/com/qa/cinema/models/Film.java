@@ -2,6 +2,7 @@ package com.qa.cinema.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -34,12 +35,10 @@ public class Film {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "director_id")
     private Director director;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "film_has_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "id"))
-    private Set<Actor> actors;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "film_has_genre", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
-    private Set<Genre> genres;
+    @Column(name = "actors")
+    private String actors;
+    @Column(name = "genres")
+    private String genres;
 
     public Long getId() {
         return id;
@@ -113,19 +112,19 @@ public class Film {
         this.director = director;
     }
 
-    public Set<Actor> getActors() {
+    public String getActors() {
         return actors;
     }
 
-    public void setActors(Set<Actor> actors) {
+    public void setActors(String actors) {
         this.actors = actors;
     }
 
-    public Set<Genre> getGenres() {
+    public String getGenres() {
         return genres;
     }
 
-    public void setGenres(Set<Genre> genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 }
