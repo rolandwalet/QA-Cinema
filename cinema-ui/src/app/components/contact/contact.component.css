@@ -1,0 +1,33 @@
+h2, table {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+#leftCol {
+  float: left;
+  width: 30%;
+}
+#middleCol {
+  float: left;
+  width: 30%;
+}
+#rightCol {
+  float: left;
+  width: 30%;
+}
+
+.contactHeading {
+  margin-left: 3%;
+  float: left;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  padding-right: 2%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
