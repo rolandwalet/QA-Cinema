@@ -61,7 +61,7 @@ const appRoutes: Routes = [
   {
     path: 'local-venues',
     component: LocalVenuesComponent
-  }
+  },
   {
     path: 'location',
     component: LocationComponent
@@ -70,8 +70,6 @@ const appRoutes: Routes = [
     path: 'about-us',
     component: AboutUsComponent
   }
-
-
 ];
 
 @NgModule({
