@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule} from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,9 +20,10 @@ import { LocalVenuesComponent } from './components/local-venues/local-venues.com
 import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
+import { ClassificationServiceService } from './services/classification/classification-service.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home',
     component: HomeComponent
@@ -98,9 +100,10 @@ const appRoutes: Routes = [
     MatCardModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ClassificationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
