@@ -21,6 +21,11 @@ h2, table {
   font-weight: bold;
   padding-right: 2%;
 }
+.messageHeading {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  padding-right: 2%;
+}
 
 a {
   text-decoration: none;
@@ -44,7 +49,7 @@ mat-form-field {
 }
 
 .form-full-width {
-    float: left;
+    display: inline-block;
     min-width: 10em;
     max-width: 50em;
     width:30em;
@@ -60,4 +65,8 @@ mat-form-field {
   min-width: 10em;
   max-width: 50em;
   width:35em;
+}
+
+#messageForm {
+  text-align: center;
 }
