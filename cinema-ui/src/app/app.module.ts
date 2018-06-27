@@ -21,7 +21,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home',
     component: HomeComponent
