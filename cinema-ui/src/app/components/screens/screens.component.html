@@ -3,24 +3,25 @@
   <p class="screenNo">
     Screen: {{screen.id}}
   </p>
-  <p class="screenInfo">
+  <p class="screenInfo screenType">
     Type: {{screen.screentype.name}}
   </p>
   <p class="screenInfo">
     Capacity: {{screen.screentype.numberOfSeats}}
   </p>
   <span class="seatingPlan">
-    <p>
+    <p class="divInfo">
       Seating Plan:
     </p>
-    <img class="screenImg" src="{{screen.screentype.seatingPlan}}" />
+    <img class="screenImg seatingPlanImg" src="{{screen.screentype.seatingPlan}}" />
   </span>
   <span class="decor">
-    <p>
-      Decor
+    <p class="divInfo">
+      Decor:
     </p>
     <img class="screenImg" src="{{screen.screentype.decor}}" />
   </span>
   <br style="clear:both" />
   <br style="clear:both" />
+  <hr />
 </div>
