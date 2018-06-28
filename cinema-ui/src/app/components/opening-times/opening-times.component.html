@@ -1,3 +1,27 @@
-<p>
-  opening-times works!
-</p>
+<div class="center">
+<h1>Opening Times</h1>
+<table class="openingTimesTable">
+  <tr>
+    <th class="tableElement" id="header">
+      Day
+    </th>
+    <th class="tableElement" id="header">
+      Open
+    </th>
+    <th class="tableElement" id="header">
+      Close
+    </th>
+  </tr>
+  <tr *ngFor="let days of information">
+    <td class="tableElement">
+      {{days.day}}
+    </td>
+    <td class="tableElement">
+      {{days.openingTime}}
+    </td>
+    <td class="tableElement">
+      {{days.closingTime}}
+    </td>
+  </tr>
+</table>
+</div>

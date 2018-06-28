@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,6 +21,8 @@ import { LocalVenuesComponent } from './components/local-venues/local-venues.com
 import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
+import { ClassificationServiceService } from './services/classification/classification-service.service';
+import { ScreenService } from './services/screen/screen.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -98,11 +101,17 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatCardModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ClassificationServiceService,
+    ScreenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

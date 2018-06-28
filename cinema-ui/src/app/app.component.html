@@ -1,3 +1,6 @@
+<div class="Site">
+
+
 <mat-toolbar>
   <mat-toolbar-row id="header">
   <a [routerLink]="['/home']"><h1 style="font-size:2.5em"> QA Cinemas</h1></a>
@@ -47,49 +50,55 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
-<mat-toolbar id="footer">
-  <ul>
-    <li>
-      <a [routerLink]="['/home']">Home</a>
-    </li>
-    <li>
-      <a [routerLink]="['/listings-gallery']">Currently Showing</a>
-    </li>
-    <li>
-      <a [routerLink]="['/future-releases']">Coming Soon</a>
-    </li>
-    <li>
-      <a [routerLink]="['/message-board']">Message Board</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a [routerLink]="['/opening-times']">Opening Times</a>
-    </li>
-    <li>
-      <a [routerLink]="['/classifications']">Classifications</a>
-    </li>
-    <li>
-      <a [routerLink]="['/screens']">Screens</a>
-    </li>
-    <li>
-      <a [routerLink]="['/booking']">Ticket Booking</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a [routerLink]="['/contact']">Contact Us</a>
-    </li>
-    <li>
-      <a [routerLink]="['/local-venues']">The Local Area</a>
-    </li>
-    <li>
-      <a [routerLink]="['/location']">Find Us</a>
-    </li>
-    <li>
-      <a [routerLink]="['/about-us']">About Us</a>
-    </li>
-  </ul>
+<div id="body">
+  <router-outlet></router-outlet>
+</div>
 
-</mat-toolbar>
+<footer>
+  <mat-toolbar id="footer">
+    <ul>
+      <li>
+        <a [routerLink]="['/home']">Home</a>
+      </li>
+      <li>
+        <a [routerLink]="['/listings-gallery']">Currently Showing</a>
+      </li>
+      <li>
+        <a [routerLink]="['/future-releases']">Coming Soon</a>
+      </li>
+      <li>
+        <a [routerLink]="['/message-board']">Message Board</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a [routerLink]="['/opening-times']">Opening Times</a>
+      </li>
+      <li>
+        <a [routerLink]="['/classifications']">Classifications</a>
+      </li>
+      <li>
+        <a [routerLink]="['/screens']">Screens</a>
+      </li>
+      <li>
+        <a [routerLink]="['/booking']">Ticket Booking</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a [routerLink]="['/contact']">Contact Us</a>
+      </li>
+      <li>
+        <a [routerLink]="['/local-venues']">The Local Area</a>
+      </li>
+      <li>
+        <a [routerLink]="['/location']">Find Us</a>
+      </li>
+      <li>
+        <a [routerLink]="['/about-us']">About Us</a>
+      </li>
+    </ul>
+  </mat-toolbar>
+</footer>
+
+</div>
