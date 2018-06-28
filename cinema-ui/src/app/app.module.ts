@@ -20,6 +20,9 @@ import { MessageBoardComponent } from './components/message-board/message-board.
 import { LocalVenuesComponent } from './components/local-venues/local-venues.component';
 import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
 import { ScreenService } from './services/screen/screen.service';
@@ -106,7 +109,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     CarouselModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    TabsModule.forRoot(),
+    PopoverModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   providers: [
     ClassificationServiceService,
