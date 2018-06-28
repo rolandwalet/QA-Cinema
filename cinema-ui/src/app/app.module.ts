@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -104,6 +105,7 @@ const appRoutes: Routes = [
     MatInputModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    CarouselModule.forRoot(),
     HttpClientModule
   ],
   providers: [
