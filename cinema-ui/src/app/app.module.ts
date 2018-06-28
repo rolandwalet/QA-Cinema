@@ -21,6 +21,7 @@ import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
+import { ScreenService } from './services/screen/screen.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -105,7 +106,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [ClassificationServiceService],
+  providers: [
+    ClassificationServiceService,
+    ScreenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

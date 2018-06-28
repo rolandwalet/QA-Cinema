@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScreenService } from '../../services/screen/screen.service';
 
 @Component({
   selector: 'app-screens',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScreensComponent implements OnInit {
 
-  constructor() { }
+  screens: Array<any>;
+
+  constructor( private screenService: ScreenService ) { }
 
   ngOnInit() {
+    this.screenService.getAll().subscribe(data => {
+      this.screens = data;
+      console.log(data);
+    });
   }
 
 }
