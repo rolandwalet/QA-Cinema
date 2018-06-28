@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'
+import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ApplicationRef } from '@angular/core';
@@ -25,6 +26,7 @@ import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
+import { ScreenService } from './services/screen/screen.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -108,13 +110,17 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
+    CarouselModule.forRoot(),
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAUP0P4drusAvNQMTErID0DhP9xxHSjV68'})
   ],
 
-  providers: [ClassificationServiceService],
+  providers: [
+    ClassificationServiceService,
+    ScreenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
