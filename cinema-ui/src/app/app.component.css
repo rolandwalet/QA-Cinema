@@ -20,9 +20,9 @@
   /* background-color: #6cf; */
 }
 
-/* * {
-  background-color: #0057ff;
-} */
+h1 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 
 .mat-button {
   width: inherit;

@@ -7,6 +7,10 @@ import { FormsModule } from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListingsGalleryComponent } from './components/listings-gallery/listings-gallery.component';
@@ -105,9 +109,14 @@ const appRoutes: Routes = [
     MatInputModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    HttpClientModule,
     CarouselModule.forRoot(),
-    HttpClientModule
+    CommonModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUP0P4drusAvNQMTErID0DhP9xxHSjV68'})
   ],
+
   providers: [
     ClassificationServiceService,
     ScreenService
