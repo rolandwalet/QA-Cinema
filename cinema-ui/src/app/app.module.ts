@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     component: FutureReleasesComponent
   },
   {
-    path: 'booking',
+    path: 'booking/:showingId',
     component: BookingComponent
   },
   {
@@ -93,6 +93,8 @@ const appRoutes: Routes = [
     AboutUsComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,

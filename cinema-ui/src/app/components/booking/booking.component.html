@@ -1,3 +1,14 @@
-<p>
-  booking works!
-</p>
+<form [formGroup]="bookingForm" (ngSubmit) = "submitBooking()" novalidate>
+<div>
+  <div>
+    <p>
+      You are currently booking a ticket for <span>{{showing.film.title}}</span>, on <span>{{showing.date}}</span>
+      at <span>{{showing.time}}</span>. Please select tickets:
+   </p>
+  </div>
+    <div>
+      <label>Name: </label><br>
+      <input type="text" formControlName="name" />
+    </div>
+  </div>
+</form>
