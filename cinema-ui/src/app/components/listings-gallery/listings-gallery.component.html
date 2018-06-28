@@ -1,15 +1,18 @@
 <h2>Listings Gallery</h2>
 
-<div>
+<div id="pageContent">
   <div class="filmPoster" *ngFor="let film of this.films">
    <img src="{{film.poster}}" />
+   <div>
+     <p>{{film.title}}</p>
+   </div>
    <div class="showings">
-     <div class="showing" *ngFor="let showing of this.showings">
+     <div class="showing" *ngFor="let showing of this.showings" >
 
        <div *ngIf="showing.film.id == film.id">
-        {{showing.date}}
+         {{showing.date}}
         <br />
-        {{showing.time}}
+          {{showing.time}}
        </div>
      </div>
    </div>

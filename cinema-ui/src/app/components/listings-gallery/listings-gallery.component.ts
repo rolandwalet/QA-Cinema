@@ -19,10 +19,117 @@ export class ListingsGalleryComponent implements OnInit {
       console.log(data);
     });
 
-    this.filmService.getAllShowings().subscribe(data => {
+    this.filmService.getAllShowings().subscribe(
+    data => {
       this.showings = data;
       console.log(data);
-    });
+      this.populateFilms();
+      this.previousShowing = this.showings[0];
+    },
+    err => console.log(err),
+    () => {
+      console.log('data loaded');
+    }
+      );
   }
+  populateFilms() {
+    var showingIndex = 0;
+    var currentFilmID;
+    var currentDate;
+    var el = document.getElementById('pageContent');
+    el.innerHTML = "";
+    var htmlToAdd = "";
+    for (let index = 0; index < this.films.length; ++index) {
+      console.log(index);
 
+      el.innerHTML +=  "<img src=\"" + this.films[index].poster + "\"/>" ;
+      el.innerHTML += "<br />";
+      el.innerHTML += "<p>" + this.films[index].title + "</p>";
+      el.innerHTML += "<p>Run time: " + this.films[index].runTime + " minutes </p>";
+      el.innerHTML += "<p>" + this.films[index].synopsis + "</p>";
+      el.innerHTML += "<p>Starring: " + this.films[index].actors + "</p>";
+      el.innerHTML += "<p>Directed By: " + this.films[index].director.name + "</p>";
+      el.innerHTML += "<p>Showing: </p>";
+      htmlToAdd += "<table><th>Date</th><th>Times</th>";
+      for (showingIndex; showingIndex < this.showings.length; showingIndex++) {
+        if(this.showings[showingIndex].film.id == this.films[index].id) {
+          console.log("id's match");
+          htmlToAdd += "<tr>";
+          if (showingIndex == 0) {
+            console.log("first run, i == 0");
+            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].date + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+            currentDate = this.showings[showingIndex].date
+          }
+          // else if (this.films[index].id != currentFilmID) {
+          //   htmlToAdd += "<td>" + this.showings[showingIndex].date + "</td>";
+          //   htmlToAdd += "<td>" + this.showings[showingIndex].time + "</td>";
+          // }
+          else if (this.showings[showingIndex].date != currentDate) {
+            console.log("no match");
+            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].date + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+            currentDate = this.showings[showingIndex].date;
+          }
+          else {
+            console.log("dates do match");
+            console.log("current date: " + this.showings[showingIndex].date + " previous date: " + this.showings[showingIndex - 1].date);
+            htmlToAdd += "<td style=\"padding-right:4em\"></td>";
+            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+          }
+          htmlToAdd += "</tr>";
+        }
+      }
+      currentFilmID = this.films[index].id;
+      currentDate = "";
+      htmlToAdd += "</table>";
+      el.innerHTML += htmlToAdd;
+      htmlToAdd = "";
+      showingIndex = 0;
+
+
+
+
+
+
+
+
+      // for (let i = 0; i < this.showings.length; ++i) {
+      //   // console.log(this.showings[i].film.id);
+      //   htmlToAdd += "<tr>";
+      //   //el.innerHTML += this.showings[i].date;
+      //   if(i == 0) {
+      //     console.log("i == 0")
+      //     if (this.showings[i].film.id == this.films[index].id) {
+      //       htmlToAdd += "<td>" + this.showings[i].date + "</td>";
+      //       htmlToAdd += "<td>" + this.showings[i].time + "</td>";
+      //     }
+      //   }
+      //   else {
+      //     console.log(this.showings[i].film.id);
+      //     console.log("current showing: " + this.showings[i].date + "previous: " + this.showings[i - 1].date);
+      //     if (this.showings[i].date != this.showings[i -1].date) {
+      //       console.log(this.showings[i].film.id);
+      //       if (this.showings[i].film.id == this.films[index].id) {
+      //         console.log("id is same, date added");
+      //         htmlToAdd += "<td>" + this.showings[i].date + "</td>";
+      //         htmlToAdd += "<td>" + this.showings[i].time + "</td>";
+      //       }
+      //     }
+      //     else{
+      //       console.log(this.showings[i].film.id);
+      //       if (this.showings[i].film.id == this.films[index].id) {
+      //         htmlToAdd += "<td></td>";
+      //         htmlToAdd += "<td>" + this.showings[i].time + "</td>";
+      //       }
+      //     }
+      //   }
+      //   htmlToAdd += "</tr>";
+      // }
+      // htmlToAdd += "</table>";
+      // el.innerHTML += htmlToAdd;
+      // htmlToAdd="";
+    }
+
+  }
 }
