@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmService } from '../../services/film/film.service';
 
 @Component({
   selector: 'app-listings-gallery',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingsGalleryComponent implements OnInit {
 
-  constructor() { }
+  films: Array<any>;
+  showings: Array<any>;
+
+  constructor( private filmService: FilmService ) { }
 
   ngOnInit() {
+    this.filmService.getAllFilms().subscribe(data => {
+      this.films = data;
+      console.log(data);
+    });
+
+    this.filmService.getAllShowings().subscribe(data => {
+      this.showings = data;
+      console.log(data);
+    });
   }
 
 }

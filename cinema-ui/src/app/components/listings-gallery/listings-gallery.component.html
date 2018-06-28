@@ -1,3 +1,17 @@
-<p>
-  listings-gallery works!
-</p>
+<h2>Listings Gallery</h2>
+
+<div>
+  <div class="filmPoster" *ngFor="let film of this.films">
+   <img src="{{film.poster}}" />
+   <div class="showings">
+     <div class="showing" *ngFor="let showing of this.showings">
+
+       <div *ngIf="showing.film.id == film.id">
+        {{showing.date}}
+        <br />
+        {{showing.time}}
+       </div>
+     </div>
+   </div>
+  </div>
+</div>
