@@ -24,10 +24,6 @@ public class ShowingsController {
     public Showing get(@PathVariable("id") Long id) {
         return repo.getOne(id);
     }
-    @GetMapping("/showings-by-date")
-    public Showing get(@PathVariable("id") Long id) {
-        return repo.getOne(id);
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
