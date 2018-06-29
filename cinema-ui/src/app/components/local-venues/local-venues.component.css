@@ -1,0 +1,35 @@
+img {
+    height: 400px;
+    width: 400px;
+}
+p {
+    
+    text-align: justify;
+}
+img.upscale1 {
+    position: relative;
+    left: 300px;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.banner{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.food{
+    float: left;
+    padding: 1em;
+
+}
+
+.tabs{
+    margin:auto;
+    width: 100%;
+}

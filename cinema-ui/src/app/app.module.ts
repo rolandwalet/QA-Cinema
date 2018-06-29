@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { TabsModule} from 'ngx-bootstrap/tabs';
 
 import { ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -118,6 +119,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     CarouselModule.forRoot(),
+    HttpClientModule,
+    TabsModule.forRoot()
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
