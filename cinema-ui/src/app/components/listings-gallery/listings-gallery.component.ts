@@ -24,7 +24,6 @@ export class ListingsGalleryComponent implements OnInit {
       this.showings = data;
       console.log(data);
       this.populateFilms();
-      this.previousShowing = this.showings[0];
     },
     err => console.log(err),
     () => {
@@ -42,23 +41,23 @@ export class ListingsGalleryComponent implements OnInit {
     for (let index = 0; index < this.films.length; ++index) {
       console.log(index);
 
-      el.innerHTML +=  "<img src=\"" + this.films[index].poster + "\"/>" ;
+      el.innerHTML +=  "<img style=\"width: 70%; max-width: 600px; height: auto;\" src=\"" + this.films[index].poster + "\"/>" ;
       el.innerHTML += "<br />";
-      el.innerHTML += "<p>" + this.films[index].title + "</p>";
-      el.innerHTML += "<p>Run time: " + this.films[index].runTime + " minutes </p>";
+      el.innerHTML += "<h3>" + this.films[index].title + "</h3>";
+      el.innerHTML += "<p><b>Run time: </b>" + this.films[index].runTime + " minutes </p>";
       el.innerHTML += "<p>" + this.films[index].synopsis + "</p>";
-      el.innerHTML += "<p>Starring: " + this.films[index].actors + "</p>";
-      el.innerHTML += "<p>Directed By: " + this.films[index].director.name + "</p>";
-      el.innerHTML += "<p>Showing: </p>";
-      htmlToAdd += "<table><th>Date</th><th>Times</th>";
+      el.innerHTML += "<p><b>Starring: </b>" + this.films[index].actors + "</p>";
+      el.innerHTML += "<p><b>Directed By: </b>" + this.films[index].director.name + "</p>";
+      el.innerHTML += "<p><b>Showing: </b></p>";
+      htmlToAdd += "<table style=\"margin-bottom: 5em;\"><th>Date</th><th>Times</th>";
       for (showingIndex; showingIndex < this.showings.length; showingIndex++) {
         if(this.showings[showingIndex].film.id == this.films[index].id) {
           console.log("id's match");
           htmlToAdd += "<tr>";
           if (showingIndex == 0) {
             console.log("first run, i == 0");
-            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].date + "</td>";
-            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em; border-top: 2px solid black;\">" + this.showings[showingIndex].date + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em; font-weight:bold; border-top: 2px solid black;\">" + "<a style=\"text-decoration: none; color: black;\" href=\"/booking/" + this.showings[showingIndex].id + "\">" + this.showings[showingIndex].time + "</a></td>";
             currentDate = this.showings[showingIndex].date
           }
           // else if (this.films[index].id != currentFilmID) {
@@ -67,15 +66,15 @@ export class ListingsGalleryComponent implements OnInit {
           // }
           else if (this.showings[showingIndex].date != currentDate) {
             console.log("no match");
-            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].date + "</td>";
-            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em; border-top: 2px solid black;\">" + this.showings[showingIndex].date + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em; font-weight:bold; border-top: 2px solid black;\">" + "<a style=\"text-decoration: none; color: black;\" href=\"/booking/" + this.showings[showingIndex].id + "\">" + this.showings[showingIndex].time + "</a></td>";
             currentDate = this.showings[showingIndex].date;
           }
           else {
             console.log("dates do match");
             console.log("current date: " + this.showings[showingIndex].date + " previous date: " + this.showings[showingIndex - 1].date);
             htmlToAdd += "<td style=\"padding-right:4em\"></td>";
-            htmlToAdd += "<td style=\"padding-right:4em\">" + this.showings[showingIndex].time + "</td>";
+            htmlToAdd += "<td style=\"padding-right:4em; font-weight:bold;\">" + "<a style=\"text-decoration: none; color: black;\" href=\"/booking/" + this.showings[showingIndex].id + "\">" + this.showings[showingIndex].time + "</a></td>";
           }
           htmlToAdd += "</tr>";
         }
