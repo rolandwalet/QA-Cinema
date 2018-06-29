@@ -10,27 +10,27 @@
       <tr>
         <td>
           <mat-form-field class="input-full-width">
-            <input matInput placeholder="Name">
+            <input name="customerName" [(ngModel)]="this.formData.customerName" matInput placeholder="Name">
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td>
           <mat-form-field class="input-full-width">
-            <input matInput placeholder="Email">
+            <input name="customerEmail" [(ngModel)]="this.formData.customerEmail" matInput placeholder="Email">
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td>
           <mat-form-field class="input-full-width">
-            <textarea rows="6" matInput placeholder="Message"></textarea>
+            <textarea name="customerMessage" [(ngModel)]="this.formData.customerMessage" rows="6" matInput placeholder="Message"></textarea>
           </mat-form-field>
         </td>
       </tr>
       <tr>
         <td>
-          <button id="messageSaveBtn" mat-raised-button color="primary">Send Message</button>
+          <button id="messageSaveBtn" (click)="this.formSubmit()" mat-raised-button color="primary">Send Message</button>
         </td>
       </tr>
     </table>
