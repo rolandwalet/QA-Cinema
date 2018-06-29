@@ -27,7 +27,7 @@ public class BookingsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void create (@RequestBody Booking booking) {
-        repo.save(booking);
+    public Booking create (@RequestBody Booking booking) {
+        return repo.save(booking);
     }
 }
