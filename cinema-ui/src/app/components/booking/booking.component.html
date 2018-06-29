@@ -3,12 +3,35 @@
   <div>
     <p>
       You are currently booking a ticket for <span>{{showing.film.title}}</span>, on <span>{{showing.date}}</span>
-      at <span>{{showing.time}}</span>. Please select tickets:
+      at <span>{{showing.time}}</span>.
+      <br><br>
+      There are <span>x</span> tickets remaining for this showing.
    </p>
   </div>
     <div>
-      <label>Name: </label><br>
+      <p>
+        Please enter the name for the booking:
+      </p>
+      <label>Name: </label>
       <input type="text" formControlName="name" />
+    </div>
+    <p>
+      Please select tickets:
+    </p>
+    <div>
+      <label>Adults: </label>
+      <input type="number" formControlName="adultQuantity" value="0" min="0"/>
+    </div>
+    <div>
+      <label>Concessions: </label>
+      <input type="number" formControlName="concessionQuantity" value="0" min="0"/>
+    </div>
+    <div>
+      <label>Child: </label>
+      <input type="number" formControlName="childQuantity" value="0" min="0" />
+    </div>
+    <div>
+      <input type="submit">
     </div>
   </div>
 </form>

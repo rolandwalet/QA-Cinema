@@ -18,17 +18,15 @@ export class BookingService {
   }
 
   createBooking(booking) {
-    let body = JSON.stringify(booking);
-    return this.http.post('server/bookings', body, httpOptions);
+    return this.http.post('server/bookings', booking, httpOptions);
   }
 
   getTicket(id: number) {
     return this.http.get('server/bookings/' + id);
   }
 
-  createTicket(booking) {
-    let body = JSON.stringify(booking);
-    return this.http.post('server/bookings', body, httpOptions);
+  createTicket(ticket) {
+    return this.http.post('server/bookings', ticket, httpOptions);
   }
 
   getTicketTypes() {

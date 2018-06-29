@@ -18,10 +18,12 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.getShowing(this.route.snapshot.params.showingId);
-    this.getTicketTypes;
+    this.getTicketTypes();
     this.bookingForm = new FormGroup({
-      // showing: this.showing,
-      name: new FormControl('', Validators.required)
+      name: new FormControl('', Validators.required),
+      adultQuantity: new FormControl(''),
+      concessionQuantity: new FormControl(''),
+      childQuantity: new FormControl('')
     });
   }
 
@@ -55,13 +57,53 @@ export class BookingComponent implements OnInit {
     );
   }
 
-  createTicket(ticketId) {
+  getBooking(id) {
+    this.bookingService.getBooking(id).subscribe(
+      data => {
+        this.booking = data;
+      },
+      err => console.log(err),
+      () => console.log('booking loaded')
+    );
+  }
 
+  createTicket(ticket) {
+    this.bookingService.createTicket(ticket).subscribe(
+      data => {
+        return true;
+      },
+      err => console.log(err),
+      () => console.log('Ticket created')
+    );
   }
 
   submitBooking(){
-    this.booking = {"showing": this.showing, "name": this.bookingForm.value};
-    this.createBooking(this.booking);
+    if (this.bookingForm.value.adultQuantity + this.bookingForm.value.concessionQuantity + this.bookingForm.value.childQuantity > 0 ) {
+      this.booking = {"showing": this.showing,
+                      "name": this.bookingForm.value.name};
+      this.createBooking(this.booking);
+      if (this.bookingForm.value.adultQuantity>0) {
+        this.createTicket({
+          "ticketType": this.ticketTypes[0],
+          "booking": this.booking,
+          "quantity": this.bookingForm.value.adultQuantity
+        });
+      }
+      if (this.bookingForm.value.concessionQuantity>0) {
+        this.createTicket({
+          "ticketType": this.ticketTypes[0],
+          "booking": this.booking,
+          "quantity": this.bookingForm.value.concessionQuantity
+        });
+      }
+      if (this.bookingForm.value.childQuantity>0) {
+        this.createTicket({
+          "ticketType": this.ticketTypes[0],
+          "booking": this.booking,
+          "quantity": this.bookingForm.value.childQuantity
+        });
+      }
+    }
   }
 
 }
