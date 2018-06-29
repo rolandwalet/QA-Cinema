@@ -10,11 +10,11 @@ export class ContactrequestService {
   constructor(private http: HttpClient) { }
 
   getPostResultURL() {
-    return "//localhost:4200/server/classifications";
+    return "//localhost:4200/server/contactrequest";
   }
 
   postForm(formData) {
     console.log("posting Data");
-    console.log(this.http.post(this.getPostResultURL(), formData));
+    return this.http.post(this.getPostResultURL(), formData);
   }
 }

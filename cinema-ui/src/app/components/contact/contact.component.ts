@@ -17,7 +17,10 @@ export class ContactComponent implements OnInit {
 
   formSubmit() {
     console.log("formSubmit hit " + this.formData.customerName + " " + this.formData.customerEmail + " " + this.formData.customerMessage);
-    this.contactrequestService.postForm(this.formData);
+    this.contactrequestService.postForm(this.formData).subscribe(
+      response => console.log(response),
+      err => console.log(err)
+    );
   }
 
 }
