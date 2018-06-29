@@ -120,7 +120,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     CarouselModule.forRoot(),
     HttpClientModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
