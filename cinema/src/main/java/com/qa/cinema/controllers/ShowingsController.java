@@ -11,9 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/showings")
 public class ShowingsController {
+	
     @Autowired
     private ShowingRepository repo;
-
+    
     @GetMapping
     public List<Showing> list() {
         return repo.findAll();
