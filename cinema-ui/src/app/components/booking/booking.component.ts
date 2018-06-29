@@ -48,22 +48,10 @@ export class BookingComponent implements OnInit {
   }
 
   createBooking(booking) {
-    this.bookingService.createBooking(booking).subscribe(
-      data => {
-       return true;
-      },
+    return this.bookingService.createBooking(booking).subscribe(
+      data => {return true},
       err => console.log(err),
       () => console.log('Booking Successfully created')
-    );
-  }
-
-  getBooking(id) {
-    this.bookingService.getBooking(id).subscribe(
-      data => {
-        this.booking = data;
-      },
-      err => console.log(err),
-      () => console.log('booking loaded')
     );
   }
 
@@ -78,29 +66,29 @@ export class BookingComponent implements OnInit {
   }
 
   submitBooking(){
-    if (this.bookingForm.value.adultQuantity + this.bookingForm.value.concessionQuantity + this.bookingForm.value.childQuantity > 0 ) {
-      this.booking = {"showing": this.showing,
-                      "name": this.bookingForm.value.name};
-      this.createBooking(this.booking);
-      if (this.bookingForm.value.adultQuantity>0) {
+    if (this.bookingForm.controls.adultQuantity.value + this.bookingForm.controls.concessionQuantity.value + this.bookingForm.controls.childQuantity.value > 0 ) {
+      console.log({showing: this.showing, customerName: this.bookingForm.controls.name.value});
+      this.booking = this.createBooking({"showing": this.showing, "customerName": this.bookingForm.controls.name.value});
+      console.log(this.booking);
+      if (this.bookingForm.controls.adultQuantity.value>0) {
         this.createTicket({
           "ticketType": this.ticketTypes[0],
           "booking": this.booking,
-          "quantity": this.bookingForm.value.adultQuantity
+          "quantity": this.bookingForm.controls.adultQuantity.value
         });
       }
-      if (this.bookingForm.value.concessionQuantity>0) {
+      if (this.bookingForm.controls.concessionQuantity.value>0) {
         this.createTicket({
-          "ticketType": this.ticketTypes[0],
+          "ticketType": this.ticketTypes[1],
           "booking": this.booking,
-          "quantity": this.bookingForm.value.concessionQuantity
+          "quantity": this.bookingForm.controls.concessionQuantity.value
         });
       }
-      if (this.bookingForm.value.childQuantity>0) {
+      if (this.bookingForm.controls.childQuantity.value>0) {
         this.createTicket({
-          "ticketType": this.ticketTypes[0],
+          "ticketType": this.ticketTypes[2],
           "booking": this.booking,
-          "quantity": this.bookingForm.value.childQuantity
+          "quantity": this.bookingForm.controls.childQuantity.value
         });
       }
     }

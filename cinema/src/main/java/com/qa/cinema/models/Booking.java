@@ -17,8 +17,8 @@ public class Booking {
     private Showing showing;
     @Column(name = "customer_name")
     private String customerName;
-    @OneToMany(mappedBy = "booking")
-    private Set<Ticket> tickets;
+//    @OneToMany(mappedBy = "booking")
+//    private Set<Ticket> tickets;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class Booking {
         this.customerName = customerName;
     }
 
-    public Set<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(Set<Ticket> tickets) {
-        this.tickets = tickets;
-    }
+//    public Set<Ticket> getTickets() {
+//        return tickets;
+//    }
+//
+//    public void setTickets(Set<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
 }

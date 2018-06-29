@@ -13,20 +13,12 @@ export class BookingService {
 
   constructor(private http: HttpClient) { }
 
-  getBooking(id: number) {
-    return this.http.get('server/bookings/' + id);
-  }
-
   createBooking(booking) {
     return this.http.post('server/bookings', booking, httpOptions);
   }
 
-  getTicket(id: number) {
-    return this.http.get('server/bookings/' + id);
-  }
-
   createTicket(ticket) {
-    return this.http.post('server/bookings', ticket, httpOptions);
+    return this.http.post('server/tickets', ticket, httpOptions);
   }
 
   getTicketTypes() {
