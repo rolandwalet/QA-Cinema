@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,6 +31,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ClassificationServiceService } from './services/classification/classification-service.service';
 import { ScreenService } from './services/screen/screen.service';
 import { FilmService } from './services/film/film.service';
+import { ContactrequestService } from './services/contactrequest/contactrequest.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     component: FutureReleasesComponent
   },
   {
-    path: 'booking',
+    path: 'booking/:showingId',
     component: BookingComponent
   },
   {
@@ -101,6 +102,8 @@ const appRoutes: Routes = [
     AboutUsComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -126,7 +129,8 @@ const appRoutes: Routes = [
 
   providers: [
     ClassificationServiceService,
-    ScreenService
+    ScreenService,
+    ContactrequestService
   ],
   bootstrap: [AppComponent]
 })
