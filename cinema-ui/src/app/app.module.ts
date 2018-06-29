@@ -7,6 +7,10 @@ import { FormsModule } from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListingsGalleryComponent } from './components/listings-gallery/listings-gallery.component';
@@ -26,6 +30,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
 import { ScreenService } from './services/screen/screen.service';
+import { FilmService } from './services/film/film.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -108,12 +113,17 @@ const appRoutes: Routes = [
     MatInputModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    CarouselModule.forRoot(),
     HttpClientModule,
+    CarouselModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    CommonModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUP0P4drusAvNQMTErID0DhP9xxHSjV68'})
   ],
+
   providers: [
     ClassificationServiceService,
     ScreenService

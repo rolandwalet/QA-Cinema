@@ -8,7 +8,9 @@ h1{
   padding: 2em;
 
 }
-
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 .tableElement{
   padding-right: 20em;
   padding-bottom: 2em;

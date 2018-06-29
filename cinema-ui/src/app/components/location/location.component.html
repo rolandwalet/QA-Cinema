@@ -1,3 +1,12 @@
-<p>
-  location works!
-</p>
+
+<div class="container">
+  <h1>
+   How to Find Us
+ </h1>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLevel">
+    <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+  </agm-map>
+  <p class="description">
+    We are located in Anchorage Quay in Salford Quays, Salford. The site has ample parking and is easily accessible via public transport links.
+  </p>
+</div>

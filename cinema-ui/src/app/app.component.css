@@ -20,9 +20,9 @@
   /* background-color: #6cf; */
 }
 
-/* * {
-  background-color: #0057ff;
-} */
+h1 {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 
 .mat-button {
   width: inherit;
@@ -53,6 +53,7 @@
   margin-top: 2%;
   margin-right: 5%;
   margin-left: 5%;
+  margin-bottom: 2%;
   flex: 1;
 }
 
