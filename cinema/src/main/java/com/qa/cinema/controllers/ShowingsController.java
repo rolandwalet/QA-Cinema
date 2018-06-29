@@ -11,15 +11,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/showings")
 public class ShowingsController {
+	
     @Autowired
     private ShowingRepository repo;
-
+    
     @GetMapping
     public List<Showing> list() {
         return repo.findAll();
     }
 
     @GetMapping("/{id}")
+    public Showing get(@PathVariable("id") Long id) {
+        return repo.getOne(id);
+    }
+    @GetMapping("/showings-by-date")
     public Showing get(@PathVariable("id") Long id) {
         return repo.getOne(id);
     }

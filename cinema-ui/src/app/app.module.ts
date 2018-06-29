@@ -27,6 +27,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
 import { ScreenService } from './services/screen/screen.service';
+import { FilmService } from './services/film/film.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
