@@ -43,6 +43,19 @@ public class BookingsController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public Booking create (@RequestBody Booking booking) {
-        return repo.save(booking);
+    	if (booking.getAdultTickets() + booking.getConcessionTickets() + booking.getChildTickets() <= 0 ) {
+    		return booking;
+    	}
+    	else if (booking.getAdultTickets() + booking.getConcessionTickets() + booking.getChildTickets() > 10 ) {
+    		return booking;
+    	}
+    	
+    	else if (booking.getCustomerName() == null) {
+    		return booking;
+    	}
+    	else {
+    		return repo.save(booking);
+    	}
+        
     }
 }
