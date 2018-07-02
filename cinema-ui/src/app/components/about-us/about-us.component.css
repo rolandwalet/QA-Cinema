@@ -1,0 +1,15 @@
+.btn-info{
+  margin: 25px 50px 75px 100px;
+  min-width: 400px;
+  font-size: 20px;
+}
+
+.bubble{
+  font-size: 40px;
+  min-width: 600px;
+  background-color: blue;
+}
+
+.tooltip{
+  font-size: 40px;
+}
