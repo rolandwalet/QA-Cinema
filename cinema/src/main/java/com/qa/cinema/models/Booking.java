@@ -13,13 +13,17 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "showing_id")
+    @Column(name = "showing_id")
     private Showing showing;
     @Column(name = "customer_name")
     private String customerName;
-//    @OneToMany(mappedBy = "booking")
-//    private Set<Ticket> tickets;
-
+    @Column(name = "adult_tickets")
+    private int adultTickets
+    @Column(name = "concession_tickets")
+    private int concessionTickets
+    @Column(name = "child_tickets")
+    private int childTickets
+    
     public Long getId() {
         return id;
     }
@@ -43,12 +47,13 @@ public class Booking {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+    
+    public int adultTickets() {
+        return adultTickets;
+    }
 
-//    public Set<Ticket> getTickets() {
-//        return tickets;
-//    }
-//
-//    public void setTickets(Set<Ticket> tickets) {
-//        this.tickets = tickets;
-//    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
 }
