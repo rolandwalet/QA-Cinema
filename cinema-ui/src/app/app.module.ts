@@ -7,7 +7,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { CarouselModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { TabsModule} from 'ngx-bootstrap/tabs';
-
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
@@ -25,9 +26,7 @@ import { MessageBoardComponent } from './components/message-board/message-board.
 import { LocalVenuesComponent } from './components/local-venues/local-venues.component';
 import { LocationComponent } from './components/location/location.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 import { ClassificationServiceService } from './services/classification/classification-service.service';
 import { ScreenService } from './services/screen/screen.service';
