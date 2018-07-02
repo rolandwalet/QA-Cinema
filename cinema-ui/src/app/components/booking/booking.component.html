@@ -19,15 +19,15 @@
     </p>
     <div>
       <label>Adults: </label>
-      <input type="number" [(ngModel)]="this.booking.adultQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.adultTickets" value="0" min="0" max="10" />
     </div>
     <div>
       <label>Concessions: </label>
-      <input type="number" [(ngModel)]="this.booking.concessionQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.concessionTickets" value="0" min="0" max="10" />
     </div>
     <div>
       <label>Child: </label>
-      <input type="number" [(ngModel)]="this.booking.childQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.childTickets" value="0" min="0" max="10" />
     </div>
     <div>
       <input type="submit" (click)="submitBooking()">
