@@ -1,4 +1,4 @@
-<div>
+<div [hidden]="!bookingState">
   <div>
     <p>
       You are currently booking a ticket for <span>{{showing.film.title}}</span>, on <span>{{showing.date}}</span>
@@ -33,3 +33,16 @@
       <input type="submit" (click)="submitBooking()">
     </div>
   </div>
+
+<div [hidden]="bookingState">
+  <p>
+    Booking Details <br><br>
+    You have booked to see <span>{{showing.film.title}}</span>, on <span>{{showing.date}}</span>
+    at <span>{{showing.time}}</span>.
+    <br>
+    Name : <span>{{this.booking.customerName}}</span><br>
+    Adult Tickets: <span>{{this.booking.adultTickets}}</span><br>
+    Concession Tickets : <span>{{this.booking.concessionTickets}}</span><br>
+    Child Tickets : <span>{{this.booking.childTickets}}</span><br>
+  </p>
+</div>
