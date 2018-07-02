@@ -18,11 +18,12 @@ public class Booking {
     @Column(name = "customer_name")
     private String customerName;
     @Column(name = "adult_tickets")
-    private int adultTickets
+    private int adultTickets;
     @Column(name = "concession_tickets")
-    private int concessionTickets
+    private int concessionTickets;
     @Column(name = "child_tickets")
-    private int childTickets
+    private int childTickets;
+    
     
     public Long getId() {
         return id;
@@ -47,13 +48,29 @@ public class Booking {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-    
-    public int adultTickets() {
-        return adultTickets;
-    }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+	public int getAdultTickets() {
+		return adultTickets;
+	}
 
+	public void setAdultTickets(int adultTickets) {
+		this.adultTickets = adultTickets;
+	}
+
+	public int getConcessionTickets() {
+		return concessionTickets;
+	}
+
+	public void setConcessionTickets(int concessionTickets) {
+		this.concessionTickets = concessionTickets;
+	}
+
+	public int getChildTickets() {
+		return childTickets;
+	}
+
+	public void setChildTickets(int childTickets) {
+		this.childTickets = childTickets;
+	}
+ 
 }
