@@ -12,9 +12,8 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
     @Column(name = "showing_id")
-    private Showing showing;
+    private Long showingId;
     @Column(name = "customer_name")
     private String customerName;
     @Column(name = "adult_tickets")
@@ -25,20 +24,20 @@ public class Booking {
     private int childTickets;
     
     
-    public Long getId() {
+    public Long getShowingId() {
+		return showingId;
+	}
+
+	public void setShowingId(Long showingId) {
+		this.showingId = showingId;
+	}
+
+	public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Showing getShowing() {
-        return showing;
-    }
-
-    public void setShowing(Showing showing) {
-        this.showing = showing;
     }
 
     public String getCustomerName() {
