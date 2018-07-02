@@ -1,4 +1,3 @@
-<form [formGroup]="bookingForm" (ngSubmit) = "submitBooking()" novalidate>
 <div>
   <div>
     <p>
@@ -13,25 +12,24 @@
         Please enter the name for the booking:
       </p>
       <label>Name: </label>
-      <input type="text" formControlName="name" />
+      <input type="text" [(ngModel)]="this.booking.customerName" />
     </div>
     <p>
       Please select tickets:
     </p>
     <div>
       <label>Adults: </label>
-      <input type="number" formControlName="adultQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.adultQuantity" value="0" min="0" max="10" />
     </div>
     <div>
       <label>Concessions: </label>
-      <input type="number" formControlName="concessionQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.concessionQuantity" value="0" min="0" max="10" />
     </div>
     <div>
       <label>Child: </label>
-      <input type="number" formControlName="childQuantity" value="0" min="0" max="10" />
+      <input type="number" [(ngModel)]="this.booking.childQuantity" value="0" min="0" max="10" />
     </div>
     <div>
-      <input type="submit">
+      <input type="submit" (click)="submitBooking()">
     </div>
   </div>
-</form>

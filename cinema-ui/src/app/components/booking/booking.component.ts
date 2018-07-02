@@ -10,9 +10,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class BookingComponent implements OnInit {
   bookingForm: FormGroup;
-  public showing;
-  public ticketTypes;
-  public booking;
+  showing: {[k: string]: any} = {};
+  booking: {[k: string]: any} = {};
 
   constructor(private bookingService: BookingService, private route: ActivatedRoute) { }
 
@@ -66,32 +65,12 @@ export class BookingComponent implements OnInit {
   }
 
   submitBooking(){
-    if (this.bookingForm.controls.adultQuantity.value + this.bookingForm.controls.concessionQuantity.value + this.bookingForm.controls.childQuantity.value > 0 ) {
-      console.log({showing: this.showing, customerName: this.bookingForm.controls.name.value});
-      this.booking = this.createBooking({"showing": this.showing, "customerName": this.bookingForm.controls.name.value});
-      console.log(this.booking);
-      if (this.bookingForm.controls.adultQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[0],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.adultQuantity.value
-        });
-      }
-      if (this.bookingForm.controls.concessionQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[1],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.concessionQuantity.value
-        });
-      }
-      if (this.bookingForm.controls.childQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[2],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.childQuantity.value
-        });
-      }
-    }
+    console.log("showing id = "this.showing.id)
+    this.booking.showingId = this.showing.id;
+    this.bookingService.createBooking(this.booking).subscribe(
+      response => console.log(response),
+      err => console.log(err)
+    );
   }
 
 }
