@@ -3,6 +3,9 @@ import { BookingService } from "../../services/booking/booking.service";
 import { ActivatedRoute } from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
+
+declare let paypal: any;
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -10,17 +13,18 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class BookingComponent implements OnInit, AfterViewChecked {
 
-  paypal: {[k: string]: any} = {};
+  // paypal: {[k: string]: any} = {};
+  // declare let paypal: any;
   bookingForm: FormGroup;
   showing: {[k: string]: any} = {};
   booking: {[k: string]: any} = {};
   bookingState: boolean = true;
-  public didPaypalScriptLoad: boolean = false;
-  public loading: boolean = true;
+  didPaypalScriptLoad: boolean = false;
+  loading: boolean = true;
 
-  public adultCost: number = 8.00;
-  public concessionCost: number = 5.00;
-  public childCost: number = 3.00;
+  adultCost: number = 8.00;
+  concessionCost: number = 5.00;
+  childCost: number = 3.00;
 
 
   constructor(private bookingService: BookingService, private route: ActivatedRoute) { }
@@ -98,7 +102,7 @@ export class BookingComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     if(!this.didPaypalScriptLoad) {
-      this.loadPaypalScript().then(() => {
+      this.loadPaypalScript().then((test) => {
         paypal.Button.render(this.paypalConfig, '#paypal-button');
         this.loading = false;
       });
