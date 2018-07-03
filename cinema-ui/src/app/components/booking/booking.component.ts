@@ -99,7 +99,7 @@ export class BookingComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked(): void {
     if(!this.didPaypalScriptLoad) {
       this.loadPaypalScript().then(() => {
-        this.paypal.Button.render(this.paypalConfig, '#paypal-button');
+        paypal.Button.render(this.paypalConfig, '#paypal-button');
         this.loading = false;
       });
     }
