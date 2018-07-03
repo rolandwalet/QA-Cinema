@@ -10,88 +10,47 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class BookingComponent implements OnInit {
   bookingForm: FormGroup;
-  public showing;
-  public ticketTypes;
-  public booking;
+  showing: {[k: string]: any} = {};
+  booking: {[k: string]: any} = {};
+  bookingState: boolean = true;
 
   constructor(private bookingService: BookingService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getShowing(this.route.snapshot.params.showingId);
-    this.getTicketTypes();
-    this.bookingForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      adultQuantity: new FormControl(''),
-      concessionQuantity: new FormControl(''),
-      childQuantity: new FormControl('')
-    });
-  }
-
-  getShowing(id: number) {
-    this.bookingService.getShowing(id).subscribe(
+    this.bookingService.getShowing(this.route.snapshot.params.showingId).subscribe(
       data => {
         this.showing = data;
       },
       err => console.log('err'),
       () => console.log('Showing loaded')
     );
-  }
-
-  getTicketTypes() {
-    this.bookingService.getTicketTypes().subscribe(
-      data => {
-        this.ticketTypes = data;
-      },
-      err => console.log(err),
-      () => console.log('Ticket Types loaded')
-    );
-  }
-
-  createBooking(booking) {
-    return this.bookingService.createBooking(booking).subscribe(
-      data => {return true},
-      err => console.log(err),
-      () => console.log('Booking Successfully created')
-    );
-  }
-
-  createTicket(ticket) {
-    this.bookingService.createTicket(ticket).subscribe(
-      data => {
-        return true;
-      },
-      err => console.log(err),
-      () => console.log('Ticket created')
-    );
+    this.booking.adultTickets = 0;
+    this.booking.concessionTickets = 0;
+    this.booking.childTickets = 0;
   }
 
   submitBooking(){
-    if (this.bookingForm.controls.adultQuantity.value + this.bookingForm.controls.concessionQuantity.value + this.bookingForm.controls.childQuantity.value > 0 ) {
-      console.log({showing: this.showing, customerName: this.bookingForm.controls.name.value});
-      this.booking = this.createBooking({"showing": this.showing, "customerName": this.bookingForm.controls.name.value});
-      console.log(this.booking);
-      if (this.bookingForm.controls.adultQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[0],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.adultQuantity.value
-        });
-      }
-      if (this.bookingForm.controls.concessionQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[1],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.concessionQuantity.value
-        });
-      }
-      if (this.bookingForm.controls.childQuantity.value>0) {
-        this.createTicket({
-          "ticketType": this.ticketTypes[2],
-          "booking": this.booking,
-          "quantity": this.bookingForm.controls.childQuantity.value
-        });
-      }
+    if (this.booking.adultTickets + this.booking.concessionTickets + this.booking.childTickets <= 0) {
+      window.alert("Booking must contain a ticket");
     }
+
+    else if (this.booking.adultTickets + this.booking.concessionTickets + this.booking.childTickets > 10) {
+      window.alert("Bookings cannot have more than 10 tickets");
+    }
+
+    else if (this.booking.customerName == null) {
+      window.alert("Booking must have a name");
+    }
+    else {
+      console.log("showing id = "this.showing.id)
+      this.booking.showingId = this.showing.id;
+      this.bookingService.createBooking(this.booking).subscribe(
+        response => console.log(response),
+        err => console.log(err)
+      );
+      this.bookingState = false;
+    }
+
   }
 
 }
