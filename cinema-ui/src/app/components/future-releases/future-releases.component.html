@@ -1,13 +1,16 @@
 <h2>Coming Soon</h2>
-
+<br> <br>
 <div id="pageContent">
   <div class="filmPoster" *ngFor="let film of this.films">
    <img src="{{film.poster}}" />
    <div>
      <h3>{{film.title}}</h3> <br>
-     Showings from: {{film.releaseDate}} <br><br>
+
+     Run time: {{film.runTime}} minutes <br> <br>
      {{film.synopsis}} <br>
-     Directed by: {{film.director.name}} <br>
+     Starring: {{film.actors}} <br><br>
+     Directed by: {{film.director.name}} <br><br>
+     Showings from: {{film.releaseDate}} <br><br>
 
    </div>
 
