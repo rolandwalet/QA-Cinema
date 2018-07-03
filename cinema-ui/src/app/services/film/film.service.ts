@@ -9,16 +9,24 @@ export class FilmService {
 
   constructor(private http: HttpClient) { }
 
-  getGetAllFilmsUrl() {
-    return "//localhost:4200/server/films"
+  getGetCurrentFilmsUrl() {
+    return "//localhost:4200/server/films/current"
+  }
+
+  getGetFutureFilmsUrl() {
+    return "//localhost:4200/server/films/future"
   }
 
   getGetAllShowingsUrl() {
     return "//localhost:4200/server/showings"
   }
 
-  getAllFilms(): Observable<any> {
-    return this.http.get(this.getGetAllFilmsUrl());
+  getCurrentFilms(): Observable<any> {
+    return this.http.get(this.getGetCurrentFilmsUrl());
+  }
+
+  getFutureFilms() : Observable<any> {
+    return this.http.get(this.getGetFutureFilmsUrl());
   }
 
   getAllShowings(): Observable<any> {
