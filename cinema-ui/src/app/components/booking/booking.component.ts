@@ -58,7 +58,7 @@ export class BookingComponent implements OnInit, AfterViewChecked {
         response => console.log(response),
         err => console.log(err)
       );
-      this.bookingState = false;
+
       return true;
       public paypalConfig: any = {
         env: 'sandbox',
@@ -83,6 +83,7 @@ export class BookingComponent implements OnInit, AfterViewChecked {
         },
         onAuthorize: (data, actions) => {
           return actions.payment.execute().then((payment) => {
+            this.bookingState = false;
             window.alert('Thank you for your purchase!');
           });
         }
