@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { BookingService } from "../../services/booking/booking.service";
 import { ActivatedRoute } from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -9,6 +9,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit, AfterViewChecked {
+
+  paypal: {[k: string]: any} = {};
   bookingForm: FormGroup;
   showing: {[k: string]: any} = {};
   booking: {[k: string]: any} = {};
@@ -60,59 +62,57 @@ export class BookingComponent implements OnInit, AfterViewChecked {
       );
 
       return true;
-      public paypalConfig: any = {
-        env: 'sandbox',
-        client: {
-          sandbox: 'AcocL08o5-QeYbt49J4W0L1R-L7QStxs3D0NtohWpRoQ8rLPs1tRqAGEYqgimW1JyMlxWjF-IpMR162B',
-          production: 'xxxxxxxxxx'
-        },
-        commit: true,
-        payment: (data, actions) => {
-          if(!this.submitBooking()) {
-            return false;
-          }
-          else {
-            return actions.payment.create({
-              payment: {
-                transactions: [
-                  { amount: { total: (this.booking.adultTickets * this.adultCost) + (this.booking.concessionTickets * this.concessionCost) + (this.booking.childTickets * this.childCost), currency: 'GBP' } }
-                ]
-              }
-            });
-          }
-        },
-        onAuthorize: (data, actions) => {
-          return actions.payment.execute().then((payment) => {
-            this.bookingState = false;
-            window.alert('Thank you for your purchase!');
-          });
-        }
-      };
-
-      public ngAfterViewChecked(): void {
-        if(!this.didPaypalScriptLoad) {
-          this.loadPaypalScript().then(() => {
-            paypal.Button.render(this.paypalConfig, '#paypal-button');
-            this.loading = false;
-          });
-        }
-      }
-
-      public loadPaypalScript(): Promise<any> {
-        this.didPaypalScriptLoad = true;
-        return new Promise((resolve, reject) => {
-          const scriptElement = document.createElement('script');
-          scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
-          scriptElement.onload = resolve;
-          document.body.appendChild(scriptElement);
-        });
-      }
 
     }
 
   }
 
+  paypalConfig: any = {
+    env: 'sandbox',
+    client: {
+      sandbox: 'AcocL08o5-QeYbt49J4W0L1R-L7QStxs3D0NtohWpRoQ8rLPs1tRqAGEYqgimW1JyMlxWjF-IpMR162B',
+      production: 'xxxxxxxxxx'
+    },
+    commit: true,
+    payment: (data, actions) => {
+      if(!this.submitBooking()) {
+        return false;
+      }
+      else {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              { amount: { total: (this.booking.adultTickets * this.adultCost) + (this.booking.concessionTickets * this.concessionCost) + (this.booking.childTickets * this.childCost), currency: 'GBP' } }
+            ]
+          }
+        });
+      }
+    },
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then((payment) => {
+        this.bookingState = false;
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  };
 
+  ngAfterViewChecked(): void {
+    if(!this.didPaypalScriptLoad) {
+      this.loadPaypalScript().then(() => {
+        this.paypal.Button.render(this.paypalConfig, '#paypal-button');
+        this.loading = false;
+      });
+    }
+  }
 
+  loadPaypalScript(): Promise<any> {
+    this.didPaypalScriptLoad = true;
+    return new Promise((resolve, reject) => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scriptElement.onload = resolve;
+      document.body.appendChild(scriptElement);
+    });
+  }
 
 }
