@@ -52,7 +52,7 @@ export class BookingComponent implements OnInit, AfterViewChecked {
       return false;
     }
     else {
-      console.log("showing id = "this.showing.id);
+      console.log("showing id = " + this.showing.id);
       this.booking.showingId = this.showing.id;
       this.bookingService.createBooking(this.booking).subscribe(
         response => console.log(response),
