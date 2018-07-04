@@ -12,28 +12,32 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "showing_id")
-    private Showing showing;
+    @Column(name = "showing_id")
+    private Long showingId;
     @Column(name = "customer_name")
     private String customerName;
-//    @OneToMany(mappedBy = "booking")
-//    private Set<Ticket> tickets;
+    @Column(name = "adult_tickets")
+    private int adultTickets;
+    @Column(name = "concession_tickets")
+    private int concessionTickets;
+    @Column(name = "child_tickets")
+    private int childTickets;
+    
+    
+    public Long getShowingId() {
+		return showingId;
+	}
 
-    public Long getId() {
+	public void setShowingId(Long showingId) {
+		this.showingId = showingId;
+	}
+
+	public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Showing getShowing() {
-        return showing;
-    }
-
-    public void setShowing(Showing showing) {
-        this.showing = showing;
     }
 
     public String getCustomerName() {
@@ -44,11 +48,28 @@ public class Booking {
         this.customerName = customerName;
     }
 
-//    public Set<Ticket> getTickets() {
-//        return tickets;
-//    }
-//
-//    public void setTickets(Set<Ticket> tickets) {
-//        this.tickets = tickets;
-//    }
+	public int getAdultTickets() {
+		return adultTickets;
+	}
+
+	public void setAdultTickets(int adultTickets) {
+		this.adultTickets = adultTickets;
+	}
+
+	public int getConcessionTickets() {
+		return concessionTickets;
+	}
+
+	public void setConcessionTickets(int concessionTickets) {
+		this.concessionTickets = concessionTickets;
+	}
+
+	public int getChildTickets() {
+		return childTickets;
+	}
+
+	public void setChildTickets(int childTickets) {
+		this.childTickets = childTickets;
+	}
+ 
 }

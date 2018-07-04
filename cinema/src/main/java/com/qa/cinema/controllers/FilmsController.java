@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,6 +20,34 @@ public class FilmsController {
     @GetMapping
     public List<Film> list() {
         return repo.findAll();
+    }
+    
+    @GetMapping("/current")
+    public List<Film> getCurrentFilms() {
+    	List<Film> allFilms = list();
+    	List<Film> releasedFilms = new ArrayList<Film>();
+    	Date date = new Date();
+    	
+    	for (Film film : allFilms) {
+    		if(film.getReleaseDate().before(date)) {
+    			releasedFilms.add(film);
+    		}
+    	}
+    	return releasedFilms;
+    }
+    
+    @GetMapping("/future")
+    public List<Film> getFutureFilms() {
+    	List<Film> allFilms = list();
+    	List<Film> futureFilms = new ArrayList<Film>();
+    	Date date = new Date();
+    	
+    	for (Film film : allFilms) {
+    		if(film.getReleaseDate().after(date)) {
+    			futureFilms.add(film);
+    		}
+    	}
+    	return futureFilms;
     }
 
 

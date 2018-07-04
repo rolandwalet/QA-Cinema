@@ -14,6 +14,7 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   createBooking(booking) {
+    console.log("create booking ran")
     return this.http.post('server/bookings', booking, httpOptions);
   }
 

@@ -1,9 +1,9 @@
 #headerLogo {
-  height: inherit;
+  height: auto;
 }
 
 #header{
-
+  margin-top: 1em;
 }
 
 
